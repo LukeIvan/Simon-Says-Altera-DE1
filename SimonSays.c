@@ -1,3 +1,5 @@
+// "Simon Says" Written By Luke Ivan, 3rd Year Computer Engineering
+
 #define PUSHBUTTON_DATA (volatile unsigned int*) 0xFF200050
 #define PUSHBUTTON_MASK (volatile unsigned int*) 0xFF200058
 #define PUSHBUTTON_EDGE (volatile unsigned int*) 0xFF20005C
@@ -53,7 +55,7 @@ void the_exception (void) __attribute__ ((section (".exceptions")));
 void the_exception (void)
 {
   asm (".set noat");         /* the .set commands are included to prevent */
-  asm (".set nobreak");      /* warning messages from the assembler  - Taken from ELEC371 Prof Naraig Manjikian*/
+  asm (".set nobreak");      /* warning messages from the assembler */
   asm ("subi sp, sp, 128");
   asm ("stw  et, 96(sp)");
   asm ("rdctl et, ct14"); 
