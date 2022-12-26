@@ -6,9 +6,6 @@
 #define NIOS2_READ_IENABLE()	   (__builtin_rdctl (3))
 #define NIOS2_WRITE_IENABLE(value) (__builtin_wrctl (3, value))
 #define NIOS2_READ_IPENDING()	   (__builtin_rdctl (4))
-
-//For the purposes of this experiment, only the edgecapture register is considered. The value held in the pushbutton
-//is not necessary, the change in output is. 
 	
 #define LEDS ((volatile unsigned int*) 0xFF200000)
 
