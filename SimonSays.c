@@ -49,7 +49,7 @@ void the_exception (void) __attribute__ ((section (".exceptions")));
  * Exceptions code. By giving the code a section attribute with the name     *
  * ".exceptions" we allow the linker program to locate this code at the      *
  * proper exceptions vector address. This code calls the interrupt handler   *
- * and later returns from the exception.                 *
+ * and later returns from the exception.                                     *
  *****************************************************************************/
 
 void the_exception (void)
@@ -133,7 +133,7 @@ void the_exception (void)
   asm ("eret"); // return from exception 
 }
 
-//Timer has 100Mhz clock, looking for interrupts every 10ms to act as a random variable
+//Timer has 100Mhz clock, looking for interrupts every 100ms to act as a random variable
 void Init(void){
     *TIMER_LO = 10000000 & 0xFFFF;
     *TIMER_HI = 10000000 & (0xFFFF << 16);
@@ -238,6 +238,7 @@ int main(void){
             timerRepo = 0;
             
             //Repeat Pattern Section
+            global_game_flag = 1;
             for(int i = 0; i < count; i++){
                 int key = buttonPressed;
                 buttonPressed = 0;
@@ -248,6 +249,7 @@ int main(void){
                 while(buttonPressed == 0){}; // wait until another button interrupt returns
                 // ^ Might be bad practice, could not find another solution
             }
+            global_game_flag = 0;
             count++;
             if(count >= 49){
                 gameOverAnim();
