@@ -1,5 +1,5 @@
  
- # Game of Simon Says being written for use on the Altera Nios II De1 board.
+Simon Says "Game" that runs on the Altera Nios II De1 board.
 
 -> Played by using 4 push buttons on the physical board, the game generates
 a randomized pattern using timer interrupts. The user must repeat the pattern back 
